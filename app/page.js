@@ -1,9 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 export default function HomePage() {
+
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const isLogged = localStorage.getItem('isLoggedIn') === 'true';
+    setLoggedIn(isLogged);
+  }, []);
+
+
   const [createForm, setCreateForm] = useState({
     email: '',
     password: '',
@@ -67,7 +76,8 @@ export default function HomePage() {
           />
         </div>
 
-        {/* Login Form */}
+        {!loggedIn && (
+    
         <form
           onSubmit={handleLoginSubmit}
           className="max-w-md mx-auto bg-gray-100 p-6 rounded-lg shadow border border-gray mb-8"
@@ -94,6 +104,7 @@ export default function HomePage() {
           </button>
         </form>
 
+        )}
         {/* Hidden Create Master User Form (for dev/admin use) */}
         <form
           onSubmit={handleCreateSubmit}

@@ -42,7 +42,7 @@ export default function StandingsPage() {
           ref={scrollRef}
           className="overflow-x-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-gray-200"
         >
-          <div className="min-w-[700px] flex flex-col gap-2">
+          <div className="min-w-[600px] flex flex-col gap-2">
             <div className="flex justify-between text-xs font-bold uppercase text-primary border-b border-gray pb-2">
               <div className="w-8">#</div>
               <div className="flex-1">Name</div>
